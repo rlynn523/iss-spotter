@@ -1,10 +1,13 @@
 let React = require('react');
+let CurrentLocation = require('./location.js');
+let connect = require('react-redux').connect;
 
 var IssMain = React.createClass({
     render: function() {
         return(
-            <div className='hello-world'>
-                <h1>Hello World</h1>
+            <div>
+                <h1>ISS Spotter!</h1>
+                <CurrentLocation />
             </div>
         )
     }
