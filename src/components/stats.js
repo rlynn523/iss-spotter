@@ -16,11 +16,11 @@ const CurrentStats = React.createClass({
     },
     render: function() {
         return(
-            <div>
+            <div className='stats'>
                 <h3>Current Stats</h3>
-                <div>Velocity:   {this.props.velocity}km/h</div>
-                <div>Visibility:  {this.props.visibility}</div>
-                <RaisedButton label='Update Stats' onClick={this.updateStats} />
+                <div className='velocity'>Velocity:   {this.props.velocity}km/h</div>
+                <div className='visibility'>Visibility:  {this.props.visibility}</div>
+                <RaisedButton className='statButton' label='Update Stats' onClick={this.updateStats} />
             </div>
         )
     }
@@ -35,3 +35,4 @@ let mapStateToProps = function(state, props) {
 
 let Container = connect(mapStateToProps)(CurrentStats);
 module.exports = Container;
+// module.exports = CurrentStats;
