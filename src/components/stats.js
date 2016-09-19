@@ -28,8 +28,8 @@ const CurrentStats = React.createClass({
 
 let mapStateToProps = function(state, props) {
     return {
-        velocity: state.velocity,
-        visibility: state.visibility
+        velocity: state.StatsReducer.velocity,
+        visibility: state.StatsReducer.visibility
     }
 }
 

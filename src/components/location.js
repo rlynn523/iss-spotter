@@ -1,6 +1,9 @@
 let React = require('react');
 let connect = require('react-redux').connect;
-let actions = require('../actions/current-location.js');
+let actions = require('../actions/location.js');
+import RaisedButton from 'material-ui/RaisedButton';
+import injectTapEventPlugin from '../../node_modules/react-tap-event-plugin';
+injectTapEventPlugin();
 
 const CurrentLocation = React.createClass({
     componentDidMount: function() {
@@ -19,7 +22,7 @@ const CurrentLocation = React.createClass({
                 <h3>Current Coordinates</h3>
                 <div>{this.props.longitude}</div>
                 <div>{this.props.latitude}</div>
-                <button type='button' onClick={this.updateCoordinates}>Update Coordinates</button>
+                <RaisedButton label='Update Coordinates' onClick={this.updateCoordinates} />
             </div>
         )
     }
@@ -27,8 +30,8 @@ const CurrentLocation = React.createClass({
 
 let mapStateToProps = function(state, props) {
     return {
-        longitude: state.longitude,
-        latitude: state.latitude
+        longitude: state.LocationReducer.longitude,
+        latitude: state.LocationReducer.latitude
     }
 }
 
