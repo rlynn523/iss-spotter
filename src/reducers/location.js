@@ -8,9 +8,13 @@ export default function LocationReducer(state = initialState, action) {
         case actions.FETCH_CURRENT_LOCATION_SUCCESS:
         var longitude = magellan(action.longitude).longitude().toDMS();
         var latitude = magellan(action.latitude).latitude().toDMS();
+        var mapLng = action.longitude;
+        var mapLt = action.latitude;
         let Location = Object.assign({}, state, {
             longitude: longitude,
-            latitude: latitude
+            latitude: latitude,
+            mapLng: mapLng,
+            mapLt: mapLt
         });
         return Location;
     }
