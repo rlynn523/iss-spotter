@@ -8,7 +8,8 @@
     "build": "npm run clean && webpack",
     "watch": "npm run build && webpack --watch",
     "clean": "rm -f build/$npm_package_name.$npm_package_version.js build/$npm_package_name.$npm_package_version.js.map",
-    "test": "mocha --compilers js:babel-register test/**/*.js*"
+    "test": "mocha --compilers js:babel-register test/**/*.js*",
+    "push-staging": "git push origin mvp-staging"
   },
   "babel": {
     "presets": [
