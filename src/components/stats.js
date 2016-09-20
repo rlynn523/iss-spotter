@@ -3,6 +3,7 @@ let connect = require('react-redux').connect;
 let actions = require('../actions/stats.js');
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import Sun from 'material-ui/svg-icons/image/brightness-5';
 
 const CurrentStats = React.createClass({
     componentDidMount: function() {
@@ -19,7 +20,7 @@ const CurrentStats = React.createClass({
         return(
             <Paper className='statsPaper' zDepth={2}>
                 <div className='statsInfo'>
-                    <h2>Current Stats</h2>
+                    <h1>Current Stats</h1>
                     <div className='velocity'>Velocity:   {this.props.velocity}km/h</div>
                     <div className='visibility'>Visibility:  {this.props.visibility}</div>
                     <RaisedButton className='statsButton' label='Update Stats' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateStats} />
