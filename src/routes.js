@@ -1,15 +1,30 @@
 let React = require('react');
-let ReactDOM = require('react-dom');
-let router = require('react-router');
-let Router = router.Router;
-let Route = router.Route;
-let hashHistory = router.hashHistory;
-let IndexRoute = router.IndexRoute;
-let Link = router.Link;
-let IssViewer = require('../stream.js');
+var router = require('react-router');
+var Router = router.Router;
+var Route = router.Route;
+var hashHistory = router.hashHistory;
+var Link = router.Link;
+var IndexRoute = router.IndexRoute;
+let IssMain = require('./components/iss-main.js');
+let CurrentLocation = require('./components/location.js');
 
-var routes = (
+var App = function(props) {
+    return (
+        <div>
+            <IssMain />
+            <div>
+                {props.children}
+            </div>
+        </div>
+    );
+};
+
+var mainRouter = (
     <Router history={hashHistory}>
-        <Route path="/" component={IssViewer} />
+        <Route path='/' component={App} />
+        <Route path='/map' component={App}>
+            <IndexRoute component={CurrentLocation} />
+        </Route>
     </Router>
 );
+module.exports = mainRouter;
