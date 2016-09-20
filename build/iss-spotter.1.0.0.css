@@ -44,10 +44,13 @@ html {
   text-align: center;
   margin: 2em 2.5%;
 }
-.coordinateInfo h2,
-.statsPaper h2 {
+.coordinateInfo h1,
+.statsPaper h1 {
   padding-top: 2em;
   margin-top: 0;
+}
+.map {
+  display: inline-block;
 }
 .coordinateButton,
 .statsButton {
@@ -60,6 +63,11 @@ html {
 .statsInfo {
   height: 25em;
 }
+.location,
+.stats {
+  background-color: #F5F5F5;
+  height: 50em;
+}
 .paperMap,
 .paperStream {
   width: 45%;
@@ -71,7 +79,14 @@ html {
   width: 100%;
   height: 25em;
 }
-.map {
-  display: inline-block;
+.visibility-icon,
+.noVisibility-icon {
+  vertical-align: middle;
+}
+.velocity,
+.visibility,
+.latitude,
+.longitude {
+  font-size: 1.5em;
 }
 /*# sourceMappingURL=iss-spotter.1.0.0.css.map */
