@@ -10,7 +10,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from '../../node_modules/react-tap-event-plugin';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import {Gmaps, Marker} from 'react-gmaps';
 injectTapEventPlugin();
 
 const CurrentLocation = React.createClass({
@@ -46,14 +46,14 @@ const CurrentLocation = React.createClass({
                             <Marker
                                 lat={this.props.mapLt}
                                 lng={this.props.mapLng}
-                                draggable={true}
+                                draggable={false}
                                 onDragEnd={this.onDragEnd} />
                         </Gmaps>
                     </Paper>
                     <div className='coordinateInfo'>
                         <Paper zDepth={2} className='coordinatesPaper'>
                             <div className='info'>
-                                <h2>Current Coordinates</h2>
+                                <h1>Current Coordinates</h1>
                                 <div className='latitude'>Latitude: {this.props.latitude}</div>
                                 <div className='longitude'>Longitude: {this.props.longitude}</div>
                                 <RaisedButton className='coordinateButton' label='Update ISS Position' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateCoordinates} />
