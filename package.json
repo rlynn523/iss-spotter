@@ -6,7 +6,7 @@
   "scripts": {
     "start": "http-server",
     "all": "git add -A",
-    "push-staging": "git push origin mvp-staging",
+    "staging": "git push origin mvp-staging",
     "build": "npm run build:js && npm run build:css && webpack",
     "watch": "npm run build:js && npm run build:css && webpack --watch",
     "clean": "rm -rf build",
