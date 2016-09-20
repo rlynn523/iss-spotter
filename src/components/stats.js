@@ -1,6 +1,7 @@
 let React = require('react');
 let connect = require('react-redux').connect;
 let actions = require('../actions/stats.js');
+import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const CurrentStats = React.createClass({
@@ -16,12 +17,14 @@ const CurrentStats = React.createClass({
     },
     render: function() {
         return(
-            <div className='stats'>
-                <h3>Current Stats</h3>
-                <div className='velocity'>Velocity:   {this.props.velocity}km/h</div>
-                <div className='visibility'>Visibility:  {this.props.visibility}</div>
-                <RaisedButton className='statButton' label='Update Stats' onClick={this.updateStats} />
-            </div>
+            <Paper className='statsPaper' zDepth={2} style={{width:'33%'}}>
+                <div className='statsInfo'>
+                    <h3>Current Stats</h3>
+                    <div className='velocity'>Velocity:   {this.props.velocity}km/h</div>
+                    <div className='visibility'>Visibility:  {this.props.visibility}</div>
+                    <RaisedButton className='statButton' label='Update Stats' onClick={this.updateStats} />
+                </div>
+            </Paper>
         )
     }
 })
