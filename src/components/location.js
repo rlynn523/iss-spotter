@@ -29,10 +29,10 @@ const CurrentLocation = React.createClass({
         return(
             <MuiThemeProvider>
                 <div className = 'location'>
-                    <Paper zDepth={2}>
+                    <Paper className='paperMap' zDepth={2}>
                         <Gmaps className='map'
-                            width={'33%'}
-                            height={'400px'}
+                            width={'100%'}
+                            height={'100%'}
                             lat={this.props.mapLt}
                             lng={this.props.mapLng}
                             zoom={3}
@@ -45,13 +45,18 @@ const CurrentLocation = React.createClass({
                                 draggable={true}
                                 onDragEnd={this.onDragEnd} />
                         </Gmaps>
-                        <div className='coordinateInfo'>
-                            <h3>Current Coordinates</h3>
-                            <div className='latitude'>{this.props.latitude}</div>
-                            <div className='longitude'>{this.props.longitude}</div>
-                            <RaisedButton className='coordinateButton' label='Update ISS Position' onClick={this.updateCoordinates} />
-                        </div>
                     </Paper>
+                    <div className='coordinateInfo'>
+                        <Paper zDepth={2} className='coordinatesPaper'>
+                            <div className='info'>
+                                <h2>Current Coordinates</h2>
+                                <div className='latitude'>Latitude: {this.props.latitude}</div>
+                                <div className='longitude'>Longitude: {this.props.longitude}</div>
+                                <RaisedButton className='coordinateButton' label='Update ISS Position' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateCoordinates} />
+                                <RaisedButton className='streamButton' label='View Live Feed' labelColor='white' backgroundColor='#9E9E9E'/>
+                            </div>
+                        </Paper>
+                    </div>
                 </div>
             </MuiThemeProvider>
         )

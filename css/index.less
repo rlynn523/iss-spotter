@@ -7,12 +7,14 @@ html {
 }
 @dark-blue: #303F9F;
 @main-blue: #3F51B5;
+@light-blue: #C5CAE9;
 
 .appBar {
     background-color: @dark-blue;
 }
+
 .mainDiv {
-    height: 500px;
+    height: 50em;
     background-color: @main-blue;
     width: 100%;
     text-align: center;
@@ -29,10 +31,6 @@ html {
     padding-top: 3em;
     padding-bottom: 1em
 }
-.shuttle {
-    margin: 0 auto;
-    text-align: center;
-}
 .launchButton {
     margin: 0 auto;
     text-align: center;
@@ -42,11 +40,30 @@ html {
     margin-top: 0;
 }
 .coordinateInfo {
+    position: absolute;
     display: inline-block;
-    width: 66%
+    width: 45%;
+    text-align: center;
+    margin: 2em 2.5%;
+    h2 {
+        padding-top: 2em;
+        margin-top: 0;
+    }
+}
+.coordinateButton {
+    margin-top: 2em;
+}
+.streamButton {
+    margin-left: 2em;
 }
 .coordinatesPaper {
-    margin: 0 auto
+    height: 25em;
+}
+.paperMap {
+    width: 45%;
+    display: inline-block;
+    height: 25em;
+    margin: 2em 2.5%;
 }
 .map {
     display: inline-block;

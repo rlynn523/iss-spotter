@@ -33,13 +33,13 @@ const IssMain = React.createClass({
             <MuiThemeProvider>
                 <div>
                     <Paper zDepth={2}>
-                        <AppBar className='appBar' title='ISS Spotter' style={{backgroundColor: '#303F9F'}}/>
+                        <AppBar className='appBar' showMenuIconButton={false} title='ISS Spotter' style={{backgroundColor: '#303F9F'}} />
                         <div className='mainDiv'>
                             <p className='title' style={{fontWeight: 'lighter'}}>Where above Earth is the ISS?</p>
                             <Link to={'/map/'}><IconButton iconStyle={style.largeIcon} style={style.large}>
                                 <SocialPublic className='launchButton' color={style.color} hoverColor={style.hoverColor} />
                             </IconButton></Link>
-                            <p className='launchApp' style={{fontWeight: 'lighter'}}>Launch</p>
+                        <p className='launchApp' style={{fontWeight: 'lighter'}}>Launch Map</p>
                         </div>
                     </Paper>
                 </div>

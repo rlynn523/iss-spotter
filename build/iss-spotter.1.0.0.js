@@ -24074,7 +24074,7 @@
 	                React.createElement(
 	                    _Paper2.default,
 	                    { zDepth: 2 },
-	                    React.createElement(_AppBar2.default, { className: 'appBar', title: 'ISS Spotter', style: { backgroundColor: '#303F9F' } }),
+	                    React.createElement(_AppBar2.default, { className: 'appBar', showMenuIconButton: false, title: 'ISS Spotter', style: { backgroundColor: '#303F9F' } }),
 	                    React.createElement(
 	                        'div',
 	                        { className: 'mainDiv' },
@@ -24095,7 +24095,7 @@
 	                        React.createElement(
 	                            'p',
 	                            { className: 'launchApp', style: { fontWeight: 'lighter' } },
-	                            'Launch'
+	                            'Launch Map'
 	                        )
 	                    )
 	                )
@@ -34816,12 +34816,12 @@
 	                { className: 'location' },
 	                React.createElement(
 	                    _Paper2.default,
-	                    { zDepth: 2 },
+	                    { className: 'paperMap', zDepth: 2 },
 	                    React.createElement(
 	                        _reactGmaps.Gmaps,
 	                        { className: 'map',
-	                            width: '33%',
-	                            height: '400px',
+	                            width: '100%',
+	                            height: '100%',
 	                            lat: this.props.mapLt,
 	                            lng: this.props.mapLng,
 	                            zoom: 3,
@@ -34833,26 +34833,37 @@
 	                            lng: this.props.mapLng,
 	                            draggable: true,
 	                            onDragEnd: this.onDragEnd })
-	                    ),
+	                    )
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'coordinateInfo' },
 	                    React.createElement(
-	                        'div',
-	                        { className: 'coordinateInfo' },
-	                        React.createElement(
-	                            'h3',
-	                            null,
-	                            'Current Coordinates'
-	                        ),
+	                        _Paper2.default,
+	                        { zDepth: 2, className: 'coordinatesPaper' },
 	                        React.createElement(
 	                            'div',
-	                            { className: 'latitude' },
-	                            this.props.latitude
-	                        ),
-	                        React.createElement(
-	                            'div',
-	                            { className: 'longitude' },
-	                            this.props.longitude
-	                        ),
-	                        React.createElement(_RaisedButton2.default, { className: 'coordinateButton', label: 'Update ISS Position', onClick: this.updateCoordinates })
+	                            { className: 'info' },
+	                            React.createElement(
+	                                'h2',
+	                                null,
+	                                'Current Coordinates'
+	                            ),
+	                            React.createElement(
+	                                'div',
+	                                { className: 'latitude' },
+	                                'Latitude: ',
+	                                this.props.latitude
+	                            ),
+	                            React.createElement(
+	                                'div',
+	                                { className: 'longitude' },
+	                                'Longitude: ',
+	                                this.props.longitude
+	                            ),
+	                            React.createElement(_RaisedButton2.default, { className: 'coordinateButton', label: 'Update ISS Position', labelColor: 'white', backgroundColor: '#9E9E9E', onClick: this.updateCoordinates }),
+	                            React.createElement(_RaisedButton2.default, { className: 'streamButton', label: 'View Live Feed', labelColor: 'white', backgroundColor: '#9E9E9E' })
+	                        )
 	                    )
 	                )
 	            )
@@ -41999,6 +42010,28 @@
 
 	'use strict';
 	
+	var _AppBar = __webpack_require__(365);
+	
+	var _AppBar2 = _interopRequireDefault(_AppBar);
+	
+	var _getMuiTheme = __webpack_require__(208);
+	
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+	
+	var _MuiThemeProvider = __webpack_require__(359);
+	
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+	
+	var _public = __webpack_require__(402);
+	
+	var _public2 = _interopRequireDefault(_public);
+	
+	var _IconButton = __webpack_require__(367);
+	
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	var React = __webpack_require__(1);
 	var router = __webpack_require__(430);
 	var Router = router.Router;
@@ -42009,11 +42042,26 @@
 	var IssMain = __webpack_require__(207);
 	var CurrentLocation = __webpack_require__(403);
 	
+	
 	var App = function App(props) {
 	    return React.createElement(
 	        'div',
 	        null,
-	        React.createElement(IssMain, null),
+	        React.createElement(
+	            _MuiThemeProvider2.default,
+	            null,
+	            React.createElement(_AppBar2.default, { className: 'appBar', showMenuIconButton: false, title: 'ISS Spotter', style: { backgroundColor: '#303F9F' },
+	                iconElementRight: React.createElement(
+	                    Link,
+	                    { to: '/' },
+	                    React.createElement(
+	                        _IconButton2.default,
+	                        null,
+	                        React.createElement(_public2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                    )
+	                )
+	            })
+	        ),
 	        React.createElement(
 	            'div',
 	            null,
@@ -42025,7 +42073,7 @@
 	var mainRouter = React.createElement(
 	    Router,
 	    { history: hashHistory },
-	    React.createElement(Route, { path: '/', component: App }),
+	    React.createElement(Route, { path: '/', component: IssMain }),
 	    React.createElement(
 	        Route,
 	        { path: '/map', component: App },
