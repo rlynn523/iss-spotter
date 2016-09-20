@@ -20,6 +20,7 @@ let fetchCurrentStatsError = function(velocity, visibility, error) {
 };
 let fetchStats = function(velocity, visibility) {
     return function(dispatch) {
+        var execStats = function() {
         let url = 'https://api.wheretheiss.at/v1/satellites/25544';
         return fetch(url).then(function(response) {
             if (response.status < 200 || response.status >= 300) {
@@ -41,6 +42,11 @@ let fetchStats = function(velocity, visibility) {
             console.log(error)
            )
        })
+    }
+    execStats();
+    setInterval(function() {
+        execStats();
+    }, 10000);
     }
 }
 

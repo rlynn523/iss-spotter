@@ -21,27 +21,33 @@ let fetchCurrentLocationError = function(longitude, latitude, error) {
 
 let fetchLocation = function(longitude, latitude) {
     return function(dispatch) {
-        let url = 'https://api.wheretheiss.at/v1/satellites/25544';
-        return fetch(url).then(function(response) {
-            if (response.status < 200 || response.status >= 300) {
-               var error = new Error(response.statusText)
-               error.response = response
-               throw error;
-           }
-           return response.json();
-       })
-       .then(function(data) {
-           let longitude = data.longitude;
-           let latitude = data.latitude;
-           return dispatch(
-               fetchCurrentLocationSuccess(longitude, latitude)
-           )
-       })
-       .catch(function(error) {
-           return dispatch(
-            console.log(error)
-           )
-       })
+        var exec = function() {
+            let url = 'https://api.wheretheiss.at/v1/satellites/25544';
+            return fetch(url).then(function(response) {
+                if (response.status < 200 || response.status >= 300) {
+                   var error = new Error(response.statusText)
+                   error.response = response
+                   throw error;
+               }
+               return response.json();
+           })
+           .then(function(data) {
+               let longitude = data.longitude;
+               let latitude = data.latitude;
+               return dispatch(
+                   fetchCurrentLocationSuccess(longitude, latitude)
+               )
+           })
+           .catch(function(error) {
+               return dispatch(
+                console.log(error)
+               )
+           })
+        }
+        exec();
+        setInterval(function() {
+            exec();
+        }, 10000);
     }
 }
 
