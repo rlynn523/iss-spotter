@@ -8,7 +8,7 @@ html {
 @dark-blue: #303F9F;
 @main-blue: #3F51B5;
 @light-blue: #C5CAE9;
-
+@light-grey: #F5F5F5;
 .appBar {
     background-color: @dark-blue;
 }
@@ -45,10 +45,13 @@ html {
     width: 45%;
     text-align: center;
     margin: 2em 2.5%;
-    h2 {
+    h1 {
         padding-top: 2em;
         margin-top: 0;
     }
+}
+.map {
+    display: inline-block;
 }
 .coordinateButton, .statsButton {
     margin-top: 2em;
@@ -58,6 +61,10 @@ html {
 }
 .coordinatesPaper, .statsInfo {
     height: 25em;
+}
+.location, .stats {
+    background-color: @light-grey;
+    height: 50em;
 }
 .paperMap, .paperStream {
     width: 45%;
@@ -69,6 +76,9 @@ html {
     width: 100%;
     height: 25em
 }
-.map {
-    display: inline-block;
+.visibility-icon, .noVisibility-icon {
+    vertical-align: middle;
+}
+.velocity, .visibility, .latitude, .longitude {
+    font-size: 1.5em;
 }
