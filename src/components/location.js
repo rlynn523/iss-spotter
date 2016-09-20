@@ -1,6 +1,10 @@
 let React = require('react');
 let connect = require('react-redux').connect;
 let actions = require('../actions/location.js');
+var router = require('react-router');
+var Router = router.Router;
+var Route = router.Route;
+var Link = router.Link;
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
@@ -53,7 +57,7 @@ const CurrentLocation = React.createClass({
                                 <div className='latitude'>Latitude: {this.props.latitude}</div>
                                 <div className='longitude'>Longitude: {this.props.longitude}</div>
                                 <RaisedButton className='coordinateButton' label='Update ISS Position' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateCoordinates} />
-                                <RaisedButton className='streamButton' label='View Live Feed' labelColor='white' backgroundColor='#9E9E9E'/>
+                                <Link to={'/stream'}><RaisedButton className='streamButton' label='View Live Feed' labelColor='white' backgroundColor='#9E9E9E'/></Link>
                             </div>
                         </Paper>
                     </div>

@@ -51,7 +51,7 @@
 	var Provider = __webpack_require__(172).Provider;
 	var store = __webpack_require__(196);
 	var IssMain = __webpack_require__(207);
-	var mainRouter = __webpack_require__(490);
+	var mainRouter = __webpack_require__(492);
 	var router = __webpack_require__(430);
 	var Router = router.Router;
 	var Route = router.Route;
@@ -23946,6 +23946,7 @@
 	        case actions.FETCH_CURRENT_STATS_SUCCESS:
 	            var visibility = action.visibility;
 	            var velocity = action.velocity;
+	            console.log(visibility);
 	            var Stats = Object.assign({}, state, {
 	                visibility: visibility,
 	                velocity: velocity
@@ -24037,12 +24038,20 @@
 	
 	var _public2 = _interopRequireDefault(_public);
 	
+	var _tv = __webpack_require__(403);
+	
+	var _tv2 = _interopRequireDefault(_tv);
+	
+	var _map = __webpack_require__(404);
+	
+	var _map2 = _interopRequireDefault(_map);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var React = __webpack_require__(1);
-	var CurrentLocation = __webpack_require__(403);
-	var CurrentStats = __webpack_require__(428);
-	var IssViewer = __webpack_require__(429);
+	var CurrentLocation = __webpack_require__(405);
+	var CurrentStats = __webpack_require__(490);
+	var IssViewer = __webpack_require__(491);
 	var connect = __webpack_require__(172).connect;
 	var router = __webpack_require__(430);
 	var Link = router.Link;
@@ -24074,7 +24083,38 @@
 	                React.createElement(
 	                    _Paper2.default,
 	                    { zDepth: 2 },
-	                    React.createElement(_AppBar2.default, { className: 'appBar', showMenuIconButton: false, title: 'ISS Spotter', style: { backgroundColor: '#303F9F' } }),
+	                    React.createElement(_AppBar2.default, { className: 'appBar', showMenuIconButton: false, title: 'ISS Spotter', style: { backgroundColor: '#303F9F' },
+	                        iconElementRight: React.createElement(
+	                            'div',
+	                            null,
+	                            React.createElement(
+	                                Link,
+	                                { to: '/' },
+	                                React.createElement(
+	                                    _IconButton2.default,
+	                                    null,
+	                                    React.createElement(_public2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                                )
+	                            ),
+	                            React.createElement(
+	                                Link,
+	                                { to: '/map' },
+	                                React.createElement(
+	                                    _IconButton2.default,
+	                                    null,
+	                                    React.createElement(_map2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                                )
+	                            ),
+	                            React.createElement(
+	                                Link,
+	                                { to: '/stream' },
+	                                React.createElement(
+	                                    _IconButton2.default,
+	                                    null,
+	                                    React.createElement(_tv2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                                )
+	                            )
+	                        ) }),
 	                    React.createElement(
 	                        'div',
 	                        { className: 'mainDiv' },
@@ -34762,6 +34802,80 @@
 
 	'use strict';
 	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _pure = __webpack_require__(391);
+	
+	var _pure2 = _interopRequireDefault(_pure);
+	
+	var _SvgIcon = __webpack_require__(400);
+	
+	var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var HardwareTv = function HardwareTv(props) {
+	  return _react2.default.createElement(
+	    _SvgIcon2.default,
+	    props,
+	    _react2.default.createElement('path', { d: 'M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z' })
+	  );
+	};
+	HardwareTv = (0, _pure2.default)(HardwareTv);
+	HardwareTv.displayName = 'HardwareTv';
+	HardwareTv.muiName = 'SvgIcon';
+	
+	exports.default = HardwareTv;
+
+/***/ },
+/* 404 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _pure = __webpack_require__(391);
+	
+	var _pure2 = _interopRequireDefault(_pure);
+	
+	var _SvgIcon = __webpack_require__(400);
+	
+	var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MapsMap = function MapsMap(props) {
+	  return _react2.default.createElement(
+	    _SvgIcon2.default,
+	    props,
+	    _react2.default.createElement('path', { d: 'M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z' })
+	  );
+	};
+	MapsMap = (0, _pure2.default)(MapsMap);
+	MapsMap.displayName = 'MapsMap';
+	MapsMap.muiName = 'SvgIcon';
+	
+	exports.default = MapsMap;
+
+/***/ },
+/* 405 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
 	var _getMuiTheme = __webpack_require__(208);
 	
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
@@ -34774,21 +34888,25 @@
 	
 	var _Paper2 = _interopRequireDefault(_Paper);
 	
-	var _RaisedButton = __webpack_require__(404);
+	var _RaisedButton = __webpack_require__(406);
 	
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 	
-	var _reactTapEventPlugin = __webpack_require__(406);
+	var _reactTapEventPlugin = __webpack_require__(408);
 	
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 	
-	var _reactGmaps = __webpack_require__(412);
+	var _reactGmaps = __webpack_require__(414);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var React = __webpack_require__(1);
 	var connect = __webpack_require__(172).connect;
 	var actions = __webpack_require__(201);
+	var router = __webpack_require__(430);
+	var Router = router.Router;
+	var Route = router.Route;
+	var Link = router.Link;
 	
 	(0, _reactTapEventPlugin2.default)();
 	
@@ -34862,7 +34980,11 @@
 	                                this.props.longitude
 	                            ),
 	                            React.createElement(_RaisedButton2.default, { className: 'coordinateButton', label: 'Update ISS Position', labelColor: 'white', backgroundColor: '#9E9E9E', onClick: this.updateCoordinates }),
-	                            React.createElement(_RaisedButton2.default, { className: 'streamButton', label: 'View Live Feed', labelColor: 'white', backgroundColor: '#9E9E9E' })
+	                            React.createElement(
+	                                Link,
+	                                { to: '/stream' },
+	                                React.createElement(_RaisedButton2.default, { className: 'streamButton', label: 'View Live Feed', labelColor: 'white', backgroundColor: '#9E9E9E' })
+	                            )
 	                        )
 	                    )
 	                )
@@ -34885,7 +35007,7 @@
 	// module.exports = CurrentLocation;
 
 /***/ },
-/* 404 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34895,7 +35017,7 @@
 	});
 	exports.default = undefined;
 	
-	var _RaisedButton = __webpack_require__(405);
+	var _RaisedButton = __webpack_require__(407);
 	
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 	
@@ -34904,7 +35026,7 @@
 	exports.default = _RaisedButton2.default;
 
 /***/ },
-/* 405 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35358,11 +35480,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 406 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(407);
-	var defaultClickRejectionStrategy = __webpack_require__(408);
+	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(409);
+	var defaultClickRejectionStrategy = __webpack_require__(410);
 	
 	var alreadyInjected = false;
 	
@@ -35384,14 +35506,14 @@
 	  alreadyInjected = true;
 	
 	  __webpack_require__(43).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(409)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(411)(shouldRejectClick)
 	  });
 	};
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 407 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -35446,7 +35568,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 408 */
+/* 410 */
 /***/ function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -35457,7 +35579,7 @@
 
 
 /***/ },
-/* 409 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -35485,10 +35607,10 @@
 	var EventPluginUtils = __webpack_require__(45);
 	var EventPropagators = __webpack_require__(42);
 	var SyntheticUIEvent = __webpack_require__(76);
-	var TouchEventUtils = __webpack_require__(410);
+	var TouchEventUtils = __webpack_require__(412);
 	var ViewportMetrics = __webpack_require__(77);
 	
-	var keyOf = __webpack_require__(411);
+	var keyOf = __webpack_require__(413);
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
 	var isStartish = EventPluginUtils.isStartish;
@@ -35633,7 +35755,7 @@
 
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports) {
 
 	/**
@@ -35681,7 +35803,7 @@
 
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports) {
 
 	/**
@@ -35721,7 +35843,7 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35732,19 +35854,19 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _componentsGmaps = __webpack_require__(413);
+	var _componentsGmaps = __webpack_require__(415);
 	
 	var _componentsGmaps2 = _interopRequireDefault(_componentsGmaps);
 	
-	var _componentsMarker = __webpack_require__(421);
+	var _componentsMarker = __webpack_require__(423);
 	
 	var _componentsMarker2 = _interopRequireDefault(_componentsMarker);
 	
-	var _componentsInfoWindow = __webpack_require__(424);
+	var _componentsInfoWindow = __webpack_require__(426);
 	
 	var _componentsInfoWindow2 = _interopRequireDefault(_componentsInfoWindow);
 	
-	var _componentsCircle = __webpack_require__(426);
+	var _componentsCircle = __webpack_require__(428);
 	
 	var _componentsCircle2 = _interopRequireDefault(_componentsCircle);
 	
@@ -35754,7 +35876,7 @@
 	exports.Circle = _componentsCircle2['default'];
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35779,19 +35901,19 @@
 	
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 	
-	var _eventsMap = __webpack_require__(414);
+	var _eventsMap = __webpack_require__(416);
 	
 	var _eventsMap2 = _interopRequireDefault(_eventsMap);
 	
-	var _mixinsListener = __webpack_require__(415);
+	var _mixinsListener = __webpack_require__(417);
 	
 	var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
 	
-	var _utilsGoogleMaps = __webpack_require__(416);
+	var _utilsGoogleMaps = __webpack_require__(418);
 	
 	var _utilsGoogleMaps2 = _interopRequireDefault(_utilsGoogleMaps);
 	
-	var _utilsCompareProps = __webpack_require__(420);
+	var _utilsCompareProps = __webpack_require__(422);
 	
 	var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
 	
@@ -35882,7 +36004,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 414 */
+/* 416 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35914,7 +36036,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 415 */
+/* 417 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -35952,7 +36074,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 416 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35963,7 +36085,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _querystring = __webpack_require__(417);
+	var _querystring = __webpack_require__(419);
 	
 	var _querystring2 = _interopRequireDefault(_querystring);
 	
@@ -36021,17 +36143,17 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 417 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	exports.decode = exports.parse = __webpack_require__(418);
-	exports.encode = exports.stringify = __webpack_require__(419);
+	exports.decode = exports.parse = __webpack_require__(420);
+	exports.encode = exports.stringify = __webpack_require__(421);
 
 
 /***/ },
-/* 418 */
+/* 420 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -36117,7 +36239,7 @@
 
 
 /***/ },
-/* 419 */
+/* 421 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -36187,7 +36309,7 @@
 
 
 /***/ },
-/* 420 */
+/* 422 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36217,7 +36339,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 421 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36228,11 +36350,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _entity = __webpack_require__(422);
+	var _entity = __webpack_require__(424);
 	
 	var _entity2 = _interopRequireDefault(_entity);
 	
-	var _eventsMarker = __webpack_require__(423);
+	var _eventsMarker = __webpack_require__(425);
 	
 	var _eventsMarker2 = _interopRequireDefault(_eventsMarker);
 	
@@ -36240,7 +36362,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 422 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36259,11 +36381,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _mixinsListener = __webpack_require__(415);
+	var _mixinsListener = __webpack_require__(417);
 	
 	var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
 	
-	var _utilsCompareProps = __webpack_require__(420);
+	var _utilsCompareProps = __webpack_require__(422);
 	
 	var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
 	
@@ -36311,7 +36433,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 423 */
+/* 425 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36345,7 +36467,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 424 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36356,11 +36478,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _entity = __webpack_require__(422);
+	var _entity = __webpack_require__(424);
 	
 	var _entity2 = _interopRequireDefault(_entity);
 	
-	var _eventsInfoWindow = __webpack_require__(425);
+	var _eventsInfoWindow = __webpack_require__(427);
 	
 	var _eventsInfoWindow2 = _interopRequireDefault(_eventsInfoWindow);
 	
@@ -36368,7 +36490,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 425 */
+/* 427 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36386,7 +36508,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 426 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36397,11 +36519,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _entity = __webpack_require__(422);
+	var _entity = __webpack_require__(424);
 	
 	var _entity2 = _interopRequireDefault(_entity);
 	
-	var _eventsCircle = __webpack_require__(427);
+	var _eventsCircle = __webpack_require__(429);
 	
 	var _eventsCircle2 = _interopRequireDefault(_eventsCircle);
 	
@@ -36409,7 +36531,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 427 */
+/* 429 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36433,105 +36555,6 @@
 	  onRightClick: 'rightclick'
 	};
 	module.exports = exports['default'];
-
-/***/ },
-/* 428 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _Paper = __webpack_require__(360);
-	
-	var _Paper2 = _interopRequireDefault(_Paper);
-	
-	var _RaisedButton = __webpack_require__(404);
-	
-	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var React = __webpack_require__(1);
-	var connect = __webpack_require__(172).connect;
-	var actions = __webpack_require__(206);
-	
-	
-	var CurrentStats = React.createClass({
-	    displayName: 'CurrentStats',
-	
-	    componentDidMount: function componentDidMount() {
-	        this.props.dispatch(actions.fetchStats(this.props.velocity, this.props.visibility));
-	    },
-	    updateStats: function updateStats() {
-	        this.props.dispatch(actions.fetchStats(this.props.velocity, this.props.visibility));
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            _Paper2.default,
-	            { className: 'statsPaper', zDepth: 2, style: { width: '33%' } },
-	            React.createElement(
-	                'div',
-	                { className: 'statsInfo' },
-	                React.createElement(
-	                    'h3',
-	                    null,
-	                    'Current Stats'
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'velocity' },
-	                    'Velocity:   ',
-	                    this.props.velocity,
-	                    'km/h'
-	                ),
-	                React.createElement(
-	                    'div',
-	                    { className: 'visibility' },
-	                    'Visibility:  ',
-	                    this.props.visibility
-	                ),
-	                React.createElement(_RaisedButton2.default, { className: 'statButton', label: 'Update Stats', onClick: this.updateStats })
-	            )
-	        );
-	    }
-	});
-	
-	var mapStateToProps = function mapStateToProps(state, props) {
-	    return {
-	        velocity: state.StatsReducer.velocity,
-	        visibility: state.StatsReducer.visibility
-	    };
-	};
-	
-	var Container = connect(mapStateToProps)(CurrentStats);
-	module.exports = Container;
-	// module.exports = CurrentStats;
-
-/***/ },
-/* 429 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	var connect = __webpack_require__(172).connect;
-	
-	var IssViewer = React.createClass({
-	    displayName: 'IssViewer',
-	
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'issViewer' },
-	            React.createElement(
-	                'h3',
-	                null,
-	                'Live Feed From The ISS!'
-	            ),
-	            React.createElement('iframe', { className: 'videoStream', width: '480', height: '270', src: 'http://www.ustream.tv/embed/17074538?html5ui' })
-	        );
-	    }
-	});
-	module.exports = IssViewer;
 
 /***/ },
 /* 430 */
@@ -42010,6 +42033,119 @@
 
 	'use strict';
 	
+	var _Paper = __webpack_require__(360);
+	
+	var _Paper2 = _interopRequireDefault(_Paper);
+	
+	var _RaisedButton = __webpack_require__(406);
+	
+	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var React = __webpack_require__(1);
+	var connect = __webpack_require__(172).connect;
+	var actions = __webpack_require__(206);
+	
+	
+	var CurrentStats = React.createClass({
+	    displayName: 'CurrentStats',
+	
+	    componentDidMount: function componentDidMount() {
+	        this.props.dispatch(actions.fetchStats(this.props.velocity, this.props.visibility));
+	    },
+	    updateStats: function updateStats() {
+	        this.props.dispatch(actions.fetchStats(this.props.velocity, this.props.visibility));
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            _Paper2.default,
+	            { className: 'statsPaper', zDepth: 2 },
+	            React.createElement(
+	                'div',
+	                { className: 'statsInfo' },
+	                React.createElement(
+	                    'h2',
+	                    null,
+	                    'Current Stats'
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'velocity' },
+	                    'Velocity:   ',
+	                    this.props.velocity,
+	                    'km/h'
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'visibility' },
+	                    'Visibility:  ',
+	                    this.props.visibility
+	                ),
+	                React.createElement(_RaisedButton2.default, { className: 'statsButton', label: 'Update Stats', labelColor: 'white', backgroundColor: '#9E9E9E', onClick: this.updateStats })
+	            )
+	        );
+	    }
+	});
+	
+	var mapStateToProps = function mapStateToProps(state, props) {
+	    return {
+	        velocity: state.StatsReducer.velocity,
+	        visibility: state.StatsReducer.visibility
+	    };
+	};
+	
+	var Container = connect(mapStateToProps)(CurrentStats);
+	module.exports = Container;
+	// module.exports = CurrentStats;
+
+/***/ },
+/* 491 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _getMuiTheme = __webpack_require__(208);
+	
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+	
+	var _MuiThemeProvider = __webpack_require__(359);
+	
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+	
+	var _Paper = __webpack_require__(360);
+	
+	var _Paper2 = _interopRequireDefault(_Paper);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var React = __webpack_require__(1);
+	var connect = __webpack_require__(172).connect;
+	
+	
+	var IssViewer = React.createClass({
+	    displayName: 'IssViewer',
+	
+	    render: function render() {
+	        return React.createElement(
+	            _MuiThemeProvider2.default,
+	            null,
+	            React.createElement(
+	                _Paper2.default,
+	                { className: 'paperStream', zDepth: 2 },
+	                React.createElement('iframe', { className: 'videoStream', src: 'http://www.ustream.tv/embed/17074538?html5ui&autoplay=true&controls=false', frameBorder: '0' })
+	            )
+	        );
+	    }
+	});
+	module.exports = IssViewer;
+
+/***/ },
+/* 492 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
 	var _AppBar = __webpack_require__(365);
 	
 	var _AppBar2 = _interopRequireDefault(_AppBar);
@@ -42026,6 +42162,14 @@
 	
 	var _public2 = _interopRequireDefault(_public);
 	
+	var _tv = __webpack_require__(403);
+	
+	var _tv2 = _interopRequireDefault(_tv);
+	
+	var _map = __webpack_require__(404);
+	
+	var _map2 = _interopRequireDefault(_map);
+	
 	var _IconButton = __webpack_require__(367);
 	
 	var _IconButton2 = _interopRequireDefault(_IconButton);
@@ -42040,7 +42184,9 @@
 	var Link = router.Link;
 	var IndexRoute = router.IndexRoute;
 	var IssMain = __webpack_require__(207);
-	var CurrentLocation = __webpack_require__(403);
+	var CurrentLocation = __webpack_require__(405);
+	var IssViewer = __webpack_require__(491);
+	var CurrentStats = __webpack_require__(490);
 	
 	
 	var App = function App(props) {
@@ -42052,15 +42198,36 @@
 	            null,
 	            React.createElement(_AppBar2.default, { className: 'appBar', showMenuIconButton: false, title: 'ISS Spotter', style: { backgroundColor: '#303F9F' },
 	                iconElementRight: React.createElement(
-	                    Link,
-	                    { to: '/' },
+	                    'div',
+	                    null,
 	                    React.createElement(
-	                        _IconButton2.default,
-	                        null,
-	                        React.createElement(_public2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                        Link,
+	                        { to: '/' },
+	                        React.createElement(
+	                            _IconButton2.default,
+	                            null,
+	                            React.createElement(_public2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        Link,
+	                        { to: '/map' },
+	                        React.createElement(
+	                            _IconButton2.default,
+	                            null,
+	                            React.createElement(_map2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        Link,
+	                        { to: '/stream' },
+	                        React.createElement(
+	                            _IconButton2.default,
+	                            null,
+	                            React.createElement(_tv2.default, { color: 'white', hoverColor: '#9E9E9E' })
+	                        )
 	                    )
-	                )
-	            })
+	                ) })
 	        ),
 	        React.createElement(
 	            'div',
@@ -42070,6 +42237,22 @@
 	    );
 	};
 	
+	var StreamContainer = function StreamContainer() {
+	    return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	            _MuiThemeProvider2.default,
+	            null,
+	            React.createElement(IssViewer, null)
+	        ),
+	        React.createElement(
+	            _MuiThemeProvider2.default,
+	            null,
+	            React.createElement(CurrentStats, null)
+	        )
+	    );
+	};
 	var mainRouter = React.createElement(
 	    Router,
 	    { history: hashHistory },
@@ -42078,6 +42261,11 @@
 	        Route,
 	        { path: '/map', component: App },
 	        React.createElement(IndexRoute, { component: CurrentLocation })
+	    ),
+	    React.createElement(
+	        Route,
+	        { path: '/stream', component: App },
+	        React.createElement(IndexRoute, { component: StreamContainer })
 	    )
 	);
 	module.exports = mainRouter;

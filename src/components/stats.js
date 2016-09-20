@@ -17,12 +17,12 @@ const CurrentStats = React.createClass({
     },
     render: function() {
         return(
-            <Paper className='statsPaper' zDepth={2} style={{width:'33%'}}>
+            <Paper className='statsPaper' zDepth={2}>
                 <div className='statsInfo'>
-                    <h3>Current Stats</h3>
+                    <h2>Current Stats</h2>
                     <div className='velocity'>Velocity:   {this.props.velocity}km/h</div>
                     <div className='visibility'>Visibility:  {this.props.visibility}</div>
-                    <RaisedButton className='statButton' label='Update Stats' onClick={this.updateStats} />
+                    <RaisedButton className='statsButton' label='Update Stats' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateStats} />
                 </div>
             </Paper>
         )

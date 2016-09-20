@@ -12,6 +12,8 @@ import Paper from 'material-ui/Paper';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import SocialPublic from 'material-ui/svg-icons/social/public';
+import Tv from 'material-ui/svg-icons/hardware/tv';
+import Map from 'material-ui/svg-icons/maps/map';
 
 const style = {
     largeIcon: {
@@ -33,7 +35,15 @@ const IssMain = React.createClass({
             <MuiThemeProvider>
                 <div>
                     <Paper zDepth={2}>
-                        <AppBar className='appBar' showMenuIconButton={false} title='ISS Spotter' style={{backgroundColor: '#303F9F'}} />
+                        <AppBar className='appBar' showMenuIconButton={false} title='ISS Spotter' style={{backgroundColor: '#303F9F'}}
+                            iconElementRight={
+                                <div>
+                                    <Link to={'/'}><IconButton><SocialPublic color='white' hoverColor='#9E9E9E'/></IconButton></Link>
+                                    <Link to={'/map'}><IconButton><Map color='white' hoverColor='#9E9E9E'/></IconButton></Link>
+                                    <Link to={'/stream'}><IconButton><Tv color='white' hoverColor='#9E9E9E'/></IconButton></Link>
+                                </div>
+                            }>
+                        </AppBar>                        
                         <div className='mainDiv'>
                             <p className='title' style={{fontWeight: 'lighter'}}>Where above Earth is the ISS?</p>
                             <Link to={'/map/'}><IconButton iconStyle={style.largeIcon} style={style.large}>
