@@ -40,7 +40,7 @@ var App = function(props) {
 
 const StreamContainer = function() {
     return (
-        <div>
+        <div className='stats'>
             <MuiThemeProvider>
                 <IssViewer />
             </MuiThemeProvider>
