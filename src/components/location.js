@@ -50,17 +50,15 @@ const CurrentLocation = React.createClass({
                                 onDragEnd={this.onDragEnd} />
                         </Gmaps>
                     </Paper>
-                    <div className='coordinateInfo'>
-                        <Paper zDepth={2} className='coordinatesPaper'>
-                            <div className='info'>
-                                <h1>Current Coordinates</h1>
-                                <div className='latitude'>Latitude: {this.props.latitude}</div>
-                                <div className='longitude'>Longitude: {this.props.longitude}</div>
-                                <RaisedButton className='coordinateButton' label='Update ISS Position' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateCoordinates} />
-                                <Link to={'/stream'}><RaisedButton className='streamButton' label='View Live Feed' labelColor='white' backgroundColor='#9E9E9E'/></Link>
-                            </div>
-                        </Paper>
-                    </div>
+                    <Paper zDepth={2} className='coordinatesPaper'>
+                        <div className='info'>
+                            <h1>Current Coordinates</h1>
+                            <div className='latitude'>Latitude: {this.props.latitude}</div>
+                            <div className='longitude'>Longitude: {this.props.longitude}</div>
+                            <RaisedButton className='coordinateButton' label='Update ISS Position' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateCoordinates} />
+                            <Link to={'/stream'}><RaisedButton className='streamButton' label='View Live Feed' labelColor='white' backgroundColor='#9E9E9E'/></Link>
+                        </div>
+                    </Paper>
                 </div>
             </MuiThemeProvider>
         )
