@@ -34,6 +34,14 @@ let fetchLocation = function(longitude, latitude) {
            .then(function(data) {
                let longitude = data.longitude;
                let latitude = data.latitude;
+               let i = 10;
+               setInterval(function() {
+                   if(i === 0) {
+                       return;
+                   } else {
+                       i=i-1;
+                   }
+               }, 1000);
                return dispatch(
                    fetchCurrentLocationSuccess(longitude, latitude)
                )
