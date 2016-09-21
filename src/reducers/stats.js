@@ -8,7 +8,7 @@ export default function StatsReducer (state = initialState, action) {
     switch(action.type) {
         case actions.FETCH_CURRENT_STATS_SUCCESS:
         var visibility = action.visibility;
-        var velocity = action.velocity
+        var velocity = ((action.velocity * 0.621371).toLocaleString());
         if(action.visibility === 'daylight') {
             visibility = <Visibility className='visibility-icon' style={{width: 64, height: 64}}/>
         } else {
