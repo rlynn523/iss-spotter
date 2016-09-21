@@ -9,10 +9,10 @@ html {
 @main-blue: #3F51B5;
 @light-blue: #C5CAE9;
 @light-grey: #F5F5F5;
+
 .appBar {
     background-color: @dark-blue;
 }
-
 .mainDiv {
     height: 50em;
     background-color: @main-blue;
@@ -39,7 +39,7 @@ html {
     color: white;
     margin-top: 0;
 }
-.coordinateInfo, .statsPaper {
+.coordinatesPaper, .statsPaper {
     position: absolute;
     display: inline-block;
     width: 45%;
@@ -56,7 +56,7 @@ html {
 .coordinateButton, .statsButton {
     margin-top: 2em;
 }
-.streamButton {
+.streamButton, .mapsButton {
     margin-left: 2em;
 }
 .coordinatesPaper, .statsInfo {
@@ -81,4 +81,21 @@ html {
 }
 .velocity, .visibility, .latitude, .longitude {
     font-size: 1.5em;
+}
+@media only screen and (max-width: 850px) {
+    .paperMap, .coordinatesPaper, .paperStream, .statsPaper {
+        display: block;
+        width: 90%;
+    }
+    .coordinatesPaper, .statsPaper {
+        margin: 2em 5%;
+    }
+    .paperMap, .paperStream {
+        margin-top: 0;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .location, .stats {
+        height: 62.5em;
+    }
 }
