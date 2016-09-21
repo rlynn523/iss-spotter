@@ -9,7 +9,7 @@ const IssViewer = React.createClass({
         return(
             <MuiThemeProvider>
                 <Paper className='paperStream' zDepth={2}>
-                    <iframe className='videoStream' src='http://www.ustream.tv/embed/17074538?html5ui&autoplay=true&controls=false' frameBorder='0'></iframe>
+                    <iframe className='videoStream' src='http://www.ustream.tv/embed/17074538?html5ui&autoplay=true&controls=false&allowfullscreen=true' frameBorder='0'></iframe>
                 </Paper>
             </MuiThemeProvider>
         )
