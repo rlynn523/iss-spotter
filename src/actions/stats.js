@@ -1,5 +1,13 @@
 import fetch from 'isomorphic-fetch';
 
+let STATS_COUNTER = 'STATS_COUNTER';
+let statsCounter = function(counter) {
+    return {
+        type: STATS_COUNTER,
+        counter: counter
+    }
+}
+
 let FETCH_CURRENT_STATS_SUCCESS = 'FETCH_CURRENT_STATS_SUCCESS';
 let fetchCurrentStatsSuccess = function(velocity, visibility) {
     return {
@@ -33,6 +41,17 @@ let fetchStats = function(velocity, visibility) {
        .then(function(data) {
            let velocity = data.velocity;
            let visibility = data.visibility;
+           let i = 20;
+           setInterval(function() {
+               if(i === 0) {
+                   return
+               } else {
+                   i=i-1;
+                   dispatch(
+                      statsCounter(i)
+                   )
+               }
+           }, 1000);
            return dispatch(
                fetchCurrentStatsSuccess(velocity, visibility)
            )
@@ -46,7 +65,7 @@ let fetchStats = function(velocity, visibility) {
     execStats();
     setInterval(function() {
         execStats();
-    }, 10000);
+    }, 20000);
     }
 }
 
@@ -55,3 +74,5 @@ exports.FETCH_CURRENT_STATS_SUCCESS = FETCH_CURRENT_STATS_SUCCESS;
 exports.fetchCurrentStatsSuccess = fetchCurrentStatsSuccess;
 exports.FETCH_CURRENT_STATS_ERROR = FETCH_CURRENT_STATS_ERROR;
 exports.fetchCurrentStatsError = fetchCurrentStatsError;
+exports.STATS_COUNTER = STATS_COUNTER;
+exports.statsCounter
