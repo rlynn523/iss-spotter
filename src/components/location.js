@@ -1,10 +1,7 @@
-let React = require('react');
-let connect = require('react-redux').connect;
-let actions = require('../actions/location.js');
-var router = require('react-router');
-var Router = router.Router;
-var Route = router.Route;
-var Link = router.Link;
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import actions from '../actions/location.js';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
@@ -13,25 +10,27 @@ import injectTapEventPlugin from '../../node_modules/react-tap-event-plugin';
 import {Gmaps, Marker} from 'react-gmaps';
 injectTapEventPlugin();
 
-const CurrentLocation = React.createClass({
-    componentDidMount: function() {
+export class CurrentLocation extends Component{
+    componentDidMount() {
+        if(!this.props.counter) {
+            this.props.dispatch(
+                actions.fetchLocation(this.props.longitude, this.props.latitude)
+            );
+        }
+    }
+    updateCoordinates() {
         this.props.dispatch(
             actions.fetchLocation(this.props.longitude, this.props.latitude)
         );
-    },
-    updateCoordinates: function() {
-        this.props.dispatch(
-            actions.fetchLocation(this.props.longitude, this.props.latitude)
-        );
-    },
+    }
     onMapCreated(map) {
         map.setOptions({
             disableDefaultUI: true
         });
-    },
-    render: function() {
+    }
+    render() {
         return(
-            <MuiThemeProvider>
+            <MuiThemeProvider className = 'locationStyle'>
                 <div className = 'location'>
                     <Paper className='paperMap' zDepth={2}>
                         <Gmaps className='map'
@@ -40,7 +39,7 @@ const CurrentLocation = React.createClass({
                             lat={this.props.mapLt}
                             lng={this.props.mapLng}
                             zoom={3}
-                            loadingMessage={'Loading...'}
+                            loadingMessage={'Loading Map...'}
                             params={{v: '3.exp', key: 'AIzaSyBr5i2yKpltIIb5JX2n8JweakAfWuNwZyM'}}
                             onMapCreated={this.onMapCreated}>
                             <Marker
@@ -53,6 +52,7 @@ const CurrentLocation = React.createClass({
                     <Paper zDepth={2} className='coordinatesPaper'>
                         <div className='info'>
                             <h1>Current Coordinates</h1>
+                            <div className='infoCounter'>Seconds Until Refresh: {this.props.counter}</div>
                             <div className='latitude'>Latitude: {this.props.latitude}</div>
                             <div className='longitude'>Longitude: {this.props.longitude}</div>
                             <RaisedButton className='coordinateButton' label='Update ISS Position' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateCoordinates} />
@@ -63,7 +63,7 @@ const CurrentLocation = React.createClass({
             </MuiThemeProvider>
         )
     }
-});
+};
 
 let mapStateToProps = function(state, props) {
     return {
@@ -71,9 +71,8 @@ let mapStateToProps = function(state, props) {
         latitude: state.LocationReducer.latitude,
         mapLng: state.LocationReducer.mapLng,
         mapLt: state.LocationReducer.mapLt,
+        counter: state.LocationReducer.counter
     }
 }
 
-let Container = connect(mapStateToProps)(CurrentLocation);
-module.exports = Container;
-// module.exports = CurrentLocation;
+export default connect(mapStateToProps)(CurrentLocation);

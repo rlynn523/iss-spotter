@@ -1,4 +1,4 @@
-let fetch = require('isomorphic-fetch');
+import fetch from 'isomorphic-fetch';
 
 let FETCH_CURRENT_LOCATION_SUCCESS = 'FETCH_CURRENT_LOCATION_SUCCESS';
 let fetchCurrentLocationSuccess = function(longitude, latitude) {
@@ -19,6 +19,13 @@ let fetchCurrentLocationError = function(longitude, latitude, error) {
     }
 }
 
+let SHOW_COUNTER = 'SHOW_COUNTER';
+let showCounter = function(counter) {
+    return {
+        type: SHOW_COUNTER,
+        counter: counter
+    }
+}
 let fetchLocation = function(longitude, latitude) {
     return function(dispatch) {
         var exec = function() {
@@ -37,9 +44,13 @@ let fetchLocation = function(longitude, latitude) {
                let i = 10;
                setInterval(function() {
                    if(i === 0) {
-                       return;
+                       return
                    } else {
                        i=i-1;
+                       dispatch(
+                          showCounter(i),
+                          console.log(showCounter(i))
+                       )
                    }
                }, 1000);
                return dispatch(
@@ -61,4 +72,6 @@ let fetchLocation = function(longitude, latitude) {
 
 exports.FETCH_CURRENT_LOCATION_SUCCESS = FETCH_CURRENT_LOCATION_SUCCESS;
 exports.FETCH_CURRENT_LOCATION_ERROR = FETCH_CURRENT_LOCATION_ERROR;
-exports.fetchLocation = fetchLocation
+exports.fetchLocation = fetchLocation;
+exports.SHOW_COUNTER = SHOW_COUNTER;
+exports.showCounter = showCounter
