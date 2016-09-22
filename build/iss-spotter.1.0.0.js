@@ -36076,11 +36076,19 @@
 	      , xbox = /xbox/i.test(ua)
 	      , result
 	
-	    if (/opera|opr|opios/i.test(ua)) {
+	    if (/opera/i.test(ua)) {
+	      //  an old Opera
 	      result = {
 	        name: 'Opera'
 	      , opera: t
 	      , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
+	      }
+	    } else if (/opr|opios/i.test(ua)) {
+	      // a new Opera
+	      result = {
+	        name: 'Opera'
+	        , opera: t
+	        , version: getFirstMatch(/(?:opr|opios)[\s\/](\d+(\.\d+)?)/i) || versionIdentifier
 	      }
 	    }
 	    else if (/SamsungBrowser/i.test(ua)) {
@@ -41425,7 +41433,7 @@
 	                _react2.default.createElement(
 	                    _Paper2.default,
 	                    { className: 'paperStream', 'data-tip': 'Double Click For Fullscreen', zDepth: 2 },
-	                    _react2.default.createElement('iframe', { className: 'videoStream', src: 'http://www.ustream.tv/embed/17074538?html5ui&autoplay=true&controls=false&allowfullscreen=true', frameBorder: '0' }),
+	                    _react2.default.createElement('iframe', { className: 'videoStream', src: 'https://www.ustream.tv/embed/17074538?html5ui&autoplay=true&controls=false&allowfullscreen=true', frameBorder: '0' }),
 	                    _react2.default.createElement(_reactTooltip2.default, { place: 'bottom' })
 	                )
 	            );
