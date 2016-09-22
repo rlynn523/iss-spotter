@@ -3,5 +3,6 @@ export default {
     longitude: 0,
     visibility: '',
     velocity: 0,
-    zoom: 8
+    zoom: 8,
+    counter: null
 }
