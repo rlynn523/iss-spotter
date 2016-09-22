@@ -1,6 +1,7 @@
 @import "normalize.css";
 html {
   box-sizing: border-box;
+  background-color: #F5F5F5;
 }
 *,
 *:before,
@@ -36,7 +37,16 @@ html {
   color: white;
   margin-top: 0;
 }
-.coordinateInfo,
+.launchMap,
+.launchStream {
+  display: inline-block;
+  width: 25%;
+}
+.info,
+.statsInfo {
+  height: 25em;
+}
+.coordinatesPaper,
 .statsPaper {
   position: absolute;
   display: inline-block;
@@ -44,7 +54,7 @@ html {
   text-align: center;
   margin: 2em 2.5%;
 }
-.coordinateInfo h1,
+.coordinatesPaper h1,
 .statsPaper h1 {
   padding-top: 2em;
   margin-top: 0;
@@ -52,21 +62,9 @@ html {
 .map {
   display: inline-block;
 }
-.coordinateButton,
-.statsButton {
+.streamButton,
+.mapsButton {
   margin-top: 2em;
-}
-.streamButton {
-  margin-left: 2em;
-}
-.coordinatesPaper,
-.statsInfo {
-  height: 25em;
-}
-.location,
-.stats {
-  background-color: #F5F5F5;
-  height: 50em;
 }
 .paperMap,
 .paperStream {
@@ -86,7 +84,56 @@ html {
 .velocity,
 .visibility,
 .latitude,
-.longitude {
+.longitude,
+.infoCounter {
   font-size: 1.5em;
+}
+.velocity,
+.latitude,
+.infoCounter {
+  margin: 0.75em;
+}
+.longitude,
+.visibility {
+  margin-bottom: 0em;
+}
+@media only screen and (max-width: 850px) {
+  .paperMap,
+  .coordinatesPaper,
+  .paperStream,
+  .statsPaper {
+    display: block;
+    width: 90%;
+  }
+  .paperStream,
+  .paperMap {
+    margin-top: 2em;
+  }
+  .coordinatesPaper,
+  .statsPaper {
+    margin: 2em 5%;
+  }
+  .paperMap,
+  .paperStream {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .location,
+  .stats {
+    height: 62.5em;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .launchMap,
+  .launchStream {
+    display: block;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .info,
+  .statsInfo {
+    font-size: 0.85em;
+  }
 }
 /*# sourceMappingURL=iss-spotter.1.0.0.css.map */
