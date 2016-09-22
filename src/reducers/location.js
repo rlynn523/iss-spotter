@@ -18,7 +18,7 @@ export default function LocationReducer(state = initialState, action) {
         });
         return Location;
         break;
-        case actions.SHOW_COUNTER:
+        case actions.MAP_COUNTER:
         let counter = action.counter;
         let Counter = Object.assign({}, state, {
             counter: counter
