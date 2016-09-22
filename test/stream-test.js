@@ -11,7 +11,6 @@ describe('IssViewer component', function() {
         let renderer = TestUtils.createRenderer();
         renderer.render(<IssViewer />);
         let result = renderer.getRenderOutput();
-        result.props.className.should.equal('streamStyle');
 
         let paperStream = result.props.children.props;
         paperStream.className.should.equal('paperStream');
