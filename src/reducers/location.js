@@ -20,7 +20,6 @@ export default function LocationReducer(state = initialState, action) {
         break;
         case actions.SHOW_COUNTER:
         let counter = action.counter;
-        console.log(counter);
         let Counter = Object.assign({}, state, {
             counter: counter
         });

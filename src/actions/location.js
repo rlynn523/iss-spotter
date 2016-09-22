@@ -48,8 +48,7 @@ let fetchLocation = function(longitude, latitude) {
                    } else {
                        i=i-1;
                        dispatch(
-                          showCounter(i),
-                          console.log(showCounter(i))
+                          showCounter(i)
                        )
                    }
                }, 1000);
