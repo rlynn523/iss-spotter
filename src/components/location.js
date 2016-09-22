@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import actions from '../actions/location.js';
-import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
@@ -10,18 +10,13 @@ import injectTapEventPlugin from '../../node_modules/react-tap-event-plugin';
 import {Gmaps, Marker} from 'react-gmaps';
 injectTapEventPlugin();
 
-export class CurrentLocation extends Component{
+export class CurrentLocation extends Component {
     componentDidMount() {
         if(!this.props.counter) {
             this.props.dispatch(
                 actions.fetchLocation(this.props.longitude, this.props.latitude)
             );
         }
-    }
-    updateCoordinates() {
-        this.props.dispatch(
-            actions.fetchLocation(this.props.longitude, this.props.latitude)
-        );
     }
     onMapCreated(map) {
         map.setOptions({
@@ -55,7 +50,6 @@ export class CurrentLocation extends Component{
                             <div className='infoCounter'>Seconds Until Refresh: {this.props.counter}</div>
                             <div className='latitude'>Latitude: {this.props.latitude}</div>
                             <div className='longitude'>Longitude: {this.props.longitude}</div>
-                            <RaisedButton className='coordinateButton' label='Update ISS Position' labelColor='white' backgroundColor='#9E9E9E' onClick={this.updateCoordinates} />
                             <Link to={'/stream'}><RaisedButton className='streamButton' label='View Live Feed' labelColor='white' backgroundColor='#9E9E9E'/></Link>
                         </div>
                     </Paper>
