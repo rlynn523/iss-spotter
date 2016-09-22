@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import CurrentLocation from './location.js';
 import CurrentStats from './stats.js';
 import IssViewer from './stream.js';
-let connect = require('react-redux').connect;
-var router = require('react-router');
-var Link = router.Link;
-
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
@@ -30,8 +28,8 @@ const style = {
   },
 };
 
-const IssMain = React.createClass({
-    render: function() {
+export default class IssMain extends Component {
+    render() {
         return(
             <MuiThemeProvider className='issStyle'>
                 <div className='iss'>
@@ -58,6 +56,4 @@ const IssMain = React.createClass({
             </MuiThemeProvider>
         )
     }
-})
-
-module.exports = IssMain;
+}
