@@ -1,5 +1,13 @@
 import fetch from 'isomorphic-fetch';
 
+let MAP_COUNTER = 'MAP_COUNTER';
+let mapCounter = function(counter) {
+    return {
+        type: MAP_COUNTER,
+        counter: counter
+    }
+}
+
 let FETCH_CURRENT_LOCATION_SUCCESS = 'FETCH_CURRENT_LOCATION_SUCCESS';
 let fetchCurrentLocationSuccess = function(longitude, latitude) {
     return {
@@ -19,13 +27,6 @@ let fetchCurrentLocationError = function(longitude, latitude, error) {
     }
 }
 
-let SHOW_COUNTER = 'SHOW_COUNTER';
-let showCounter = function(counter) {
-    return {
-        type: SHOW_COUNTER,
-        counter: counter
-    }
-}
 let fetchLocation = function(longitude, latitude) {
     return function(dispatch) {
         var exec = function() {
@@ -48,7 +49,7 @@ let fetchLocation = function(longitude, latitude) {
                    } else {
                        i=i-1;
                        dispatch(
-                          showCounter(i)
+                          mapCounter(i)
                        )
                    }
                }, 1000);
@@ -72,5 +73,5 @@ let fetchLocation = function(longitude, latitude) {
 exports.FETCH_CURRENT_LOCATION_SUCCESS = FETCH_CURRENT_LOCATION_SUCCESS;
 exports.FETCH_CURRENT_LOCATION_ERROR = FETCH_CURRENT_LOCATION_ERROR;
 exports.fetchLocation = fetchLocation;
-exports.SHOW_COUNTER = SHOW_COUNTER;
-exports.showCounter = showCounter
+exports.MAP_COUNTER = MAP_COUNTER;
+exports.mapCounter = mapCounter
