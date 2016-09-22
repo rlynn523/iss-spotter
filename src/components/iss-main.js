@@ -46,10 +46,20 @@ export default class IssMain extends Component {
                         </AppBar>
                         <div className='mainDiv'>
                             <p className='title' style={{fontWeight: 'lighter'}}>Where above Earth is the ISS?</p>
-                            <Link to={'/map/'}><IconButton iconStyle={style.largeIcon} style={style.large}>
-                                <SocialPublic className='launchButton' color={style.color} hoverColor={style.hoverColor} />
-                            </IconButton></Link>
-                        <p className='launchApp' style={{fontWeight: 'lighter'}}>Launch Map</p>
+                            <div className='launch'>
+                                <div className='launchMap'>
+                                    <Link to={'/map'}><IconButton iconStyle={style.largeIcon} style={style.large}>
+                                        <SocialPublic className='launchButton' color={style.color} hoverColor={style.hoverColor} />
+                                    </IconButton></Link>
+                                    <p className='launchApp' style={{fontWeight: 'lighter'}}>Launch Map</p>
+                                </div>
+                                <div className='launchStream'>
+                                    <Link to={'/stream'}><IconButton iconStyle={style.largeIcon} style={style.large}>
+                                        <Tv className='launchButton' color={style.color} hoverColor={style.hoverColor} />
+                                    </IconButton></Link>
+                                    <p className='launchApp' style={{fontWeight: 'lighter'}}>Launch Live Feed</p>
+                                </div>
+                            </div>
                         </div>
                     </Paper>
                 </div>
