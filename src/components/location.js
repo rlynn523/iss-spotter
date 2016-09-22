@@ -25,8 +25,8 @@ export class CurrentLocation extends Component {
     }
     render() {
         return(
-            <MuiThemeProvider className = 'locationStyle'>
-                <div className = 'location'>
+            <MuiThemeProvider className='locationStyle'>
+                <div className='location'>
                     <Paper className='paperMap' zDepth={2}>
                         <Gmaps className='map'
                             width={'100%'}
