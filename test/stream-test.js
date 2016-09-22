@@ -1,20 +1,23 @@
-let React = require('react');
-let TestUtils = require('react-addons-test-utils');
-let should = require('chai').should();
-
-let IssViewer = require('../src/components/stream.js');
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
+import { should } from 'chai';
+should();
+import { Provider } from 'react-redux';
+import store from '../src/store';
+import IssViewer from '../src/components/stream.js'
 
 describe('IssViewer component', function() {
     it('Should Render Iss Video Stream', function(){
         let renderer = TestUtils.createRenderer();
         renderer.render(<IssViewer />);
         let result = renderer.getRenderOutput();
-        result.props.className.should.equal('issViewer');
+        result.props.className.should.equal('streamStyle');
 
-        let h3 = result.props.children[0].props.children;
-        h3.should.equal('Live Feed From The ISS!');
+        let paperStream = result.props.children.props;
+        paperStream.className.should.equal('paperStream');
 
-        let stream = result.props.children[1].props;
-        stream.className.should.equal('videoStream');
+        let videoStream = paperStream.children[0];
+        videoStream.type.should.equal('iframe');
+        videoStream.props.className.should.equal('videoStream');
     });
 });
