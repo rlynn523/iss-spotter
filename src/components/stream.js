@@ -1,12 +1,12 @@
-import React from 'react';
-let connect = require('react-redux').connect;
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import ReactTooltip from 'react-tooltip'
 
-const IssViewer = React.createClass({
-    render: function() {
+export default class IssViewer extends Component {
+    render() {
         return(
             <MuiThemeProvider>
                 <Paper className='paperStream' data-tip='Double Click For Fullscreen' zDepth={2}>
@@ -16,5 +16,4 @@ const IssViewer = React.createClass({
             </MuiThemeProvider>
         )
     }
-})
-module.exports = IssViewer;
+}
