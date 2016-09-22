@@ -1,6 +1,6 @@
-let actions = require('../actions/location.js');
+import actions from '../actions/location.js';
 //converts coordinates from Where The ISS AT API to DMS for Google Maps
-let magellan = require('../../node_modules/magellan-coords')
+import magellan from '../../node_modules/magellan-coords';
 import initialState from './initialstate';
 
 export default function LocationReducer(state = initialState, action) {
@@ -17,6 +17,14 @@ export default function LocationReducer(state = initialState, action) {
             mapLt: mapLt
         });
         return Location;
+        break;
+        case actions.SHOW_COUNTER:
+        let counter = action.counter;
+        console.log(counter);
+        let Counter = Object.assign({}, state, {
+            counter: counter
+        });
+        return Counter;
     }
     return state;
 }
