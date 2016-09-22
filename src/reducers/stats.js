@@ -19,6 +19,13 @@ export default function StatsReducer (state = initialState, action) {
             velocity: velocity
         });
         return Stats;
+        break;
+        case actions.STATS_COUNTER:
+        let counter = action.counter;
+        let Counter = Object.assign({}, state, {
+            counter: counter
+        });
+        return Counter;
     }
     return state;
 }
