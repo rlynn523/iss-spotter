@@ -30,15 +30,12 @@ describe('IssMain component', function() {
         divTitle.props.className.should.equal('title');
         divTitle.props.children.should.equal('Where above Earth is the ISS?');
 
-        let launch = mainDiv.props.children[1];
-        launch.props.className.should.equal('launch');
-
-        let launchMap = launch.props.children[0];
+        let launchMap = mainDiv.props.children[1].props.children[0];
         launchMap.props.className.should.equal('launchMap');
         launchMap.props.children[0].props.to.should.equal('/map');
         launchMap.props.children[1].type.should.equal('p');
 
-        let launchStream = launch.props.children[1];
+        let launchStream = mainDiv.props.children[1].props.children[1];
         launchStream.props.className.should.equal('launchStream');
         launchStream.props.children[0].props.to.should.equal('/stream');
         launchStream.props.children[1].type.should.equal('p');
