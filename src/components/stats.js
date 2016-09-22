@@ -1,15 +1,12 @@
-let React = require('react');
-let connect = require('react-redux').connect;
-let actions = require('../actions/stats.js');
-var router = require('react-router');
-var Router = router.Router;
-var Route = router.Route;
-var Link = router.Link;
+import React from 'react';
+import actions from '../actions/stats.js';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
+import { connect } from 'react-redux';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Sun from 'material-ui/svg-icons/image/brightness-5';
 
-const CurrentStats = React.createClass({
+export const CurrentStats = React.createClass({
     componentDidMount: function() {
         this.props.dispatch(
             actions.fetchStats(this.props.velocity, this.props.visibility)
@@ -42,6 +39,4 @@ let mapStateToProps = function(state, props) {
     }
 }
 
-let Container = connect(mapStateToProps)(CurrentStats);
-module.exports = Container;
-// module.exports = CurrentStats;
+export default connect(mapStateToProps)(CurrentStats);

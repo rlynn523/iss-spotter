@@ -1,4 +1,4 @@
-let fetch = require('isomorphic-fetch');
+import fetch from 'isomorphic-fetch';
 
 let FETCH_CURRENT_STATS_SUCCESS = 'FETCH_CURRENT_STATS_SUCCESS';
 let fetchCurrentStatsSuccess = function(velocity, visibility) {

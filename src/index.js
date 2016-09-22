@@ -1,14 +1,9 @@
-let React = require('react');
-let ReactDOM = require('react-dom');
-let Provider = require('react-redux').Provider;
-let store = require('./store');
-let IssMain = require('./components/iss-main.js');
-let mainRouter = require('./routes.js');
-var router = require('react-router');
-var Router = router.Router;
-var Route = router.Route;
-var hashHistory = router.hashHistory;
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
+import store from './store';
+import mainRouter from './routes.js';
 let routes = (
     <Provider store={store}>
         {mainRouter}

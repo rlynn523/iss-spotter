@@ -1,5 +1,5 @@
-let React = require('react');
-let actions = require('../actions/stats.js');
+import React from 'react';
+import actions from '../actions/stats.js';
 import initialState from './initialstate';
 import Visibility from 'material-ui/svg-icons/action/visibility';
 import NoVisibility from 'material-ui/svg-icons/action/visibility-off';
