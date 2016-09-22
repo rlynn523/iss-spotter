@@ -1,9 +1,8 @@
-let redux = require('redux');
-let createStore = redux.createStore;
-let applyMiddleware = redux.applyMiddleware;
-let thunk = require('redux-thunk').default;
-let reducers = require ('./reducers/index');
+import redux from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import reducers from './reducers/index';
 
-let store = createStore(reducers.default, applyMiddleware(thunk));
+let store = createStore(reducers, applyMiddleware(ReduxThunk));
 
 module.exports = store;
