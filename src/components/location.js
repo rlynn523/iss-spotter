@@ -27,7 +27,6 @@ export class CurrentLocation extends Component {
         return(
             <MuiThemeProvider className='locationStyle'>
                 <div className='location'>
-                    // Utilizes the Paper Component from Material UI
                     <Paper className='paperMap' zDepth={2}>
                         <Gmaps className='map'
                             width={'100%'}
