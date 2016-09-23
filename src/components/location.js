@@ -7,7 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from '../../node_modules/react-tap-event-plugin';
-import {Gmaps, Marker} from 'react-gmaps';
+import { Gmaps, Marker } from 'react-gmaps';
 injectTapEventPlugin();
 
 export class CurrentLocation extends Component {
@@ -27,6 +27,7 @@ export class CurrentLocation extends Component {
         return(
             <MuiThemeProvider className='locationStyle'>
                 <div className='location'>
+                    // Utilizes the Paper Component from Material UI
                     <Paper className='paperMap' zDepth={2}>
                         <Gmaps className='map'
                             width={'100%'}
