@@ -9,6 +9,9 @@ export default function StatsReducer (state = initialState, action) {
         case actions.FETCH_CURRENT_STATS_SUCCESS:
         var visibility = action.visibility;
         var velocity = ((action.velocity * 0.621371).toLocaleString());
+        /* Instead of displaying the two visibility options from the API (either 'daylight' or 'eclipsed'),
+            this will display either an eye icon to represent that visiblity is 'daylight', or an eye with a
+            slash to denote that visiblity is 'eclipsed' */
         if(action.visibility === 'daylight') {
             visibility = <Visibility className='visibility-icon' style={{width: 64, height: 64}}/>
         } else {

@@ -14,7 +14,6 @@ describe('CurrentLocation component', function() {
         result.props.className.should.equal('locationStyle');
         let location = result.props.children;
         location.props.className.should.equal('location');
-
         let paperMap = location.props.children[0];
         paperMap.props.className.should.equal('paperMap');
 
