@@ -4,7 +4,7 @@ import { should } from 'chai';
 should();
 import { Provider } from 'react-redux';
 import store from '../src/store';
-import { CurrentLocation } from '../src/components/location.js'
+import { CurrentLocation } from '../src/components/location'
 
 describe('CurrentLocation component', function() {
     it('Should Render Coordinates and Map', function(){
