@@ -26,7 +26,8 @@ export default class IssMain extends Component {
         return(
             <MuiThemeProvider className='issStyle'>
                 <div className='mainDiv'>
-                    <p className='title' style={{fontWeight: 'lighter'}}>Where above Earth is the ISS?</p>
+                    <p className='title' style={{fontWeight: 'lighter'}}>Where above Earth</p>
+                    <p className='titleTwo' style={{fontWeight: 'lighter'}}>is the International Space Station?</p>
                     <div className='launch'>
                         <div className='launchMap'>
                             <Link to={'/map'}><IconButton iconStyle={style.largeIcon} style={style.large}>
