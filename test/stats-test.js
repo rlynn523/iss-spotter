@@ -4,16 +4,16 @@ import { should } from 'chai';
 should();
 import { Provider } from 'react-redux';
 import store from '../src/store';
-import { CurrentStats } from '../src/components/stats.js'
+import { CurrentStats } from '../src/components/stats'
 
 describe('CurrentStats component', function() {
     it('Should Render Current Velocity and Visibility', function(){
         let renderer = TestUtils.createRenderer();
         renderer.render(<CurrentStats />);
         let result = renderer.getRenderOutput();
-        result.props.className.should.equal('statsPaper');
+        result.props.children.props.className.should.equal('statsPaper');
 
-        let statsInfo = result.props.children.props;
+        let statsInfo = result.props.children.props.children.props;
         statsInfo.className.should.equal('statsInfo');
         statsInfo.children[0].type.should.equal('h1');
         statsInfo.children[0].props.children.should.equal('Current Stats');

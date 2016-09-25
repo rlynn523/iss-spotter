@@ -4,7 +4,7 @@ import { should } from 'chai';
 should();
 import { Provider } from 'react-redux';
 import store from '../src/store';
-import IssViewer from '../src/components/stream.js'
+import IssViewer from '../src/components/stream'
 
 describe('IssViewer component', function() {
     it('Should Render Iss Video Stream', function(){

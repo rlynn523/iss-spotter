@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import actions from '../actions/location.js';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
+import actions from '../actions/location';
+import { MuiThemeProvider, Paper, RaisedButton } from 'material-ui';
 import injectTapEventPlugin from '../../node_modules/react-tap-event-plugin';
 import { Gmaps, Marker } from 'react-gmaps';
 injectTapEventPlugin();

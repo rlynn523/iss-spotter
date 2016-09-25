@@ -4,26 +4,16 @@ import { should } from 'chai';
 should();
 import { Provider } from 'react-redux';
 import store from '../src/store';
-import IssMain from '../src/components/iss-main.js'
+import IssMain from '../src/components/iss-main'
 
 describe('IssMain component', function() {
-    it('Should Render AppBar, mainDiv, Buttons Linked to Map and Stream Routes', function(){
+    it('Should Render mainDiv, Buttons Linked to Map and Stream Routes', function(){
         let renderer = TestUtils.createRenderer();
         renderer.render(<IssMain />);
         let result = renderer.getRenderOutput();
         result.props.className.should.equal('issStyle');
 
-        let iss = result.props.children;
-        iss.props.className.should.equal('iss');
-
-        let appBar = iss.props.children.props.children[0];
-        appBar.props.className.should.equal('appBar');
-        appBar.props.title.should.equal('ISS Spotter');
-        appBar.props.iconElementRight.props.children[0].props.to.should.equal('/');
-        appBar.props.iconElementRight.props.children[1].props.to.should.equal('/map');
-        appBar.props.iconElementRight.props.children[2].props.to.should.equal('/stream');
-
-        let mainDiv = iss.props.children.props.children[1];
+        let mainDiv = result.props.children;
         mainDiv.props.className.should.equal('mainDiv')
 
         let divTitle = mainDiv.props.children[0];
