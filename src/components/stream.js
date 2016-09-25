@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Paper from 'material-ui/Paper';
+import { MuiThemeProvider, Paper } from 'material-ui';
 import ReactTooltip from 'react-tooltip'
 
 export default class IssViewer extends Component {
