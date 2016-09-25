@@ -31,6 +31,8 @@ export class CurrentLocation extends Component {
                             lat={this.props.mapLt}
                             lng={this.props.mapLng}
                             zoom={3}
+                            scrollwheel={false}
+                            draggable={false}
                             loadingMessage={'Loading Map...'}
                             params={{v: '3.exp', key: 'AIzaSyBr5i2yKpltIIb5JX2n8JweakAfWuNwZyM'}}
                             onMapCreated={this.onMapCreated}>
