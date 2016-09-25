@@ -9,11 +9,9 @@ html {
   box-sizing: inherit;
 }
 .appBar {
-  background-color: #303F9F;
+  background-color: #3F51B5;
 }
 .mainDiv {
-  height: 50em;
-  background-color: #3F51B5;
   width: 100%;
   text-align: center;
 }
@@ -22,7 +20,7 @@ html {
   color: white;
 }
 .title {
-  color: white;
+  color: black;
   text-align: center;
   font-size: 3em;
   margin: 0;
@@ -34,7 +32,7 @@ html {
   text-align: center;
 }
 .launchApp {
-  color: white;
+  color: black;
   margin-top: 0;
 }
 .launchMap,

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import store from './store';
-import mainRouter from './routes.js';
+import mainRouter from './routes';
 let routes = (
     <Provider store={store}>
         {mainRouter}
