@@ -6,6 +6,12 @@ import Tv from 'material-ui/svg-icons/hardware/tv';
 import Map from 'material-ui/svg-icons/maps/map';
 import ReactTooltip from 'react-tooltip'
 
+/*
+The NavBar component displays different IconButtons which are linked to different
+routes. When clicked on, the components associated with those routes are rendered to
+the page.
+*/
+
 export default class NavBar extends Component {
     render() {
         return(

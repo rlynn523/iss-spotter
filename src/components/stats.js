@@ -5,6 +5,13 @@ import actions from '../actions/stats.js';
 import { MuiThemeProvider, Paper, RaisedButton } from 'material-ui';
 import Sun from 'material-ui/svg-icons/image/brightness-5';
 
+/*
+As soon as the CurrentStats component renders, the fetchStats action is dispatched.
+This action fetches the velocity and visibility of the ISS from the Where The ISS At? API.
+These are then displayed within the component.  A counter is also fired every
+time the fetchStats action is, which counts down the time until the next update.
+*/
+
 export class CurrentStats extends Component {
     componentDidMount() {
         if(!this.props.counter) {
