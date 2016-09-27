@@ -27,6 +27,11 @@ let fetchCurrentLocationError = function(longitude, latitude, error) {
     }
 }
 
+// Fetches longitude and latitude from Where The ISS At? API
+// setInterval function allows for this action to fire every 10 Seconds
+// The mapCounter action is dispatched every time the fetchLoaciton action is
+// The setInterval function creates a counter that represents the time until the next fetchLocation action
+
 let fetchLocation = function(longitude, latitude) {
     return function(dispatch) {
         var exec = function() {

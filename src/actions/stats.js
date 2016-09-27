@@ -26,6 +26,12 @@ let fetchCurrentStatsError = function(velocity, visibility, error) {
         error: error
     }
 };
+
+// Fetches velocity and visibility from Where The ISS At? API
+// setInterval function allows for this action to fire every 20 Seconds
+// The statsCounter action is dispatched every time the fetchStats action is
+// The setInterval function creates a counter that represents the time until the next statsCounter action
+
 let fetchStats = function(velocity, visibility) {
     return function(dispatch) {
         var execStats = function() {
