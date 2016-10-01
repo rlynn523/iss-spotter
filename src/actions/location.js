@@ -17,16 +17,6 @@ let fetchCurrentLocationSuccess = function(longitude, latitude) {
     }
 }
 
-let FETCH_CURRENT_LOCATION_ERROR = 'FETCH_CURRENT_LOCATION_ERROR';
-let fetchCurrentLocationError = function(longitude, latitude, error) {
-    return {
-        type: FETCH_CURRENT_LOCATION_ERROR,
-        longitude: longitude,
-        latitude: latitude,
-        error: error
-    }
-}
-
 // Fetches longitude and latitude from Where The ISS At? API
 // setInterval function allows for this action to fire every 10 Seconds
 // The mapCounter action is dispatched every time the fetchLoaciton action is
@@ -76,7 +66,6 @@ let fetchLocation = function(longitude, latitude) {
 }
 
 exports.FETCH_CURRENT_LOCATION_SUCCESS = FETCH_CURRENT_LOCATION_SUCCESS;
-exports.FETCH_CURRENT_LOCATION_ERROR = FETCH_CURRENT_LOCATION_ERROR;
 exports.fetchLocation = fetchLocation;
 exports.MAP_COUNTER = MAP_COUNTER;
 exports.mapCounter = mapCounter
