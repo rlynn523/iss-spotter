@@ -8,6 +8,8 @@ import Tv from 'material-ui/svg-icons/hardware/tv';
 import Map from 'material-ui/svg-icons/maps/map';
 import ReactTooltip from 'react-tooltip'
 
+// Styling for IconButtons
+
 const style = {
     largeIcon: {
         width: 60,
@@ -20,6 +22,13 @@ const style = {
         padding: 30,
   },
 };
+
+/*
+This is the Landing Page. Here, a title is displayed, as well as two IconButton.
+The Map Icon is linked to the '/map' route, which when clicked, renders the
+components associated with that route to the page. The same is true for the
+The TV Icon, which is linked to the '/stream' route
+*/
 
 export default class IssMain extends Component {
     render() {

@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { MuiThemeProvider, Paper } from 'material-ui';
 import ReactTooltip from 'react-tooltip'
 
+/*
+The IssViewer Component housed an iframe tag which displays the live feed of the
+Earth from the ISS via Ustream.
+*/
+
 export default class IssViewer extends Component {
     render() {
         return(

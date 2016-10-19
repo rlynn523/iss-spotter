@@ -17,15 +17,11 @@ let fetchCurrentStatsSuccess = function(velocity, visibility) {
     }
 };
 
-let FETCH_CURRENT_STATS_ERROR = 'FETCH_CURRENT_STATS_ERROR';
-let fetchCurrentStatsError = function(velocity, visibility, error) {
-    return {
-        type: FETCH_CURRENT_STATS_ERROR,
-        velocity: velocity,
-        visibility: visibility,
-        error: error
-    }
-};
+// Fetches velocity and visibility from Where The ISS At? API
+// setInterval function allows for this action to fire every 20 Seconds
+// The statsCounter action is dispatched every time the fetchStats action is
+// The setInterval function creates a counter that represents the time until the next statsCounter action
+
 let fetchStats = function(velocity, visibility) {
     return function(dispatch) {
         var execStats = function() {
@@ -72,7 +68,5 @@ let fetchStats = function(velocity, visibility) {
 exports.fetchStats = fetchStats;
 exports.FETCH_CURRENT_STATS_SUCCESS = FETCH_CURRENT_STATS_SUCCESS;
 exports.fetchCurrentStatsSuccess = fetchCurrentStatsSuccess;
-exports.FETCH_CURRENT_STATS_ERROR = FETCH_CURRENT_STATS_ERROR;
-exports.fetchCurrentStatsError = fetchCurrentStatsError;
 exports.STATS_COUNTER = STATS_COUNTER;
 exports.statsCounter

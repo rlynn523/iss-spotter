@@ -28697,6 +28697,7 @@
 	            // Converts coordinates from Where The ISS AT API to DMS for Google Maps
 	            var longitude = (0, _magellanCoords2.default)(action.longitude).longitude().toDMS();
 	            var latitude = (0, _magellanCoords2.default)(action.latitude).latitude().toDMS();
+	            // mapLng and mapLt variables are set to the values fetched from the API
 	            var mapLng = action.longitude;
 	            var mapLt = action.latitude;
 	            var Location = Object.assign({}, state, {
@@ -28746,15 +28747,10 @@
 	    };
 	};
 	
-	var FETCH_CURRENT_LOCATION_ERROR = 'FETCH_CURRENT_LOCATION_ERROR';
-	var fetchCurrentLocationError = function fetchCurrentLocationError(longitude, latitude, error) {
-	    return {
-	        type: FETCH_CURRENT_LOCATION_ERROR,
-	        longitude: longitude,
-	        latitude: latitude,
-	        error: error
-	    };
-	};
+	// Fetches longitude and latitude from Where The ISS At? API
+	// setInterval function allows for this action to fire every 10 Seconds
+	// The mapCounter action is dispatched every time the fetchLoaciton action is
+	// The setInterval function creates a counter that represents the time until the next fetchLocation action
 	
 	var fetchLocation = function fetchLocation(longitude, latitude) {
 	    return function (dispatch) {
@@ -28792,7 +28788,6 @@
 	};
 	
 	exports.FETCH_CURRENT_LOCATION_SUCCESS = FETCH_CURRENT_LOCATION_SUCCESS;
-	exports.FETCH_CURRENT_LOCATION_ERROR = FETCH_CURRENT_LOCATION_ERROR;
 	exports.fetchLocation = fetchLocation;
 	exports.MAP_COUNTER = MAP_COUNTER;
 	exports.mapCounter = mapCounter;
@@ -29554,7 +29549,9 @@
 	
 	    switch (action.type) {
 	        case _stats2.default.FETCH_CURRENT_STATS_SUCCESS:
+	            // visibility variable is set to the value fetched from the fetchStats action
 	            var visibility = action.visibility;
+	            // the velocity fetched from the API is converted to MPH and a string via toLocaleString()
 	            var velocity = (action.velocity * 0.621371).toLocaleString();
 	            /* Instead of displaying the two visibility options from the API (either 'daylight' or 'eclipsed'),
 	                this will display either an eye icon to represent that visiblity is 'daylight', or an eye with a
@@ -29609,15 +29606,11 @@
 	    };
 	};
 	
-	var FETCH_CURRENT_STATS_ERROR = 'FETCH_CURRENT_STATS_ERROR';
-	var fetchCurrentStatsError = function fetchCurrentStatsError(velocity, visibility, error) {
-	    return {
-	        type: FETCH_CURRENT_STATS_ERROR,
-	        velocity: velocity,
-	        visibility: visibility,
-	        error: error
-	    };
-	};
+	// Fetches velocity and visibility from Where The ISS At? API
+	// setInterval function allows for this action to fire every 20 Seconds
+	// The statsCounter action is dispatched every time the fetchStats action is
+	// The setInterval function creates a counter that represents the time until the next statsCounter action
+	
 	var fetchStats = function fetchStats(velocity, visibility) {
 	    return function (dispatch) {
 	        var execStats = function execStats() {
@@ -29656,8 +29649,6 @@
 	exports.fetchStats = fetchStats;
 	exports.FETCH_CURRENT_STATS_SUCCESS = FETCH_CURRENT_STATS_SUCCESS;
 	exports.fetchCurrentStatsSuccess = fetchCurrentStatsSuccess;
-	exports.FETCH_CURRENT_STATS_ERROR = FETCH_CURRENT_STATS_ERROR;
-	exports.fetchCurrentStatsError = fetchCurrentStatsError;
 	exports.STATS_COUNTER = STATS_COUNTER;
 	exports.statsCounter;
 
@@ -30414,6 +30405,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// Styling for IconButtons
+	
 	var style = {
 	    largeIcon: {
 	        width: 60,
@@ -30426,6 +30419,13 @@
 	        padding: 30
 	    }
 	};
+	
+	/*
+	This is the Landing Page. Here, a title is displayed, as well as two IconButton.
+	The Map Icon is linked to the '/map' route, which when clicked, renders the
+	components associated with that route to the page. The same is true for the
+	The TV Icon, which is linked to the '/stream' route
+	*/
 	
 	var IssMain = function (_Component) {
 	    _inherits(IssMain, _Component);
@@ -30547,6 +30547,27 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	(0, _reactTapEventPlugin2.default)();
+	
+	/*
+	This is the CurrentLocation Component, which is comprised of a Gmaps component
+	and a coordinatesPaper component. As soon as the CurrentLocation component
+	renders, the fetchLocation action is dispatched. This action fetches the
+	current location of the ISS from the Where The ISS At? API.
+	*/
+	
+	/*
+	The Gmaps div is a npm module called react-gmaps. This module renders a Google Maps component
+	on the screen. Here, the lat and lng properties are set to equal the latitude
+	and longitude coordinates that are returned from the fetchLocation action.
+	The fetchLocation action is timed to fire every 10 seconds, which allows for
+	a live render of the Google Maps Marker on the Map.
+	 */
+	
+	/*
+	The coordinatesPaper component is set to display the current longitue and latitude of
+	the ISS. A counter is also fired every time the fetchLocation action is, which
+	counts down the time until the next update.
+	*/
 	
 	var CurrentLocation = exports.CurrentLocation = function (_Component) {
 	    _inherits(CurrentLocation, _Component);
@@ -67636,6 +67657,13 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	/*
+	As soon as the CurrentStats component renders, the fetchStats action is dispatched.
+	This action fetches the velocity and visibility of the ISS from the Where The ISS At? API.
+	These are then displayed within the component.  A counter is also fired every
+	time the fetchStats action is, which counts down the time until the next update.
+	*/
+	
 	var CurrentStats = exports.CurrentStats = function (_Component) {
 	    _inherits(CurrentStats, _Component);
 	
@@ -67778,6 +67806,11 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/*
+	The IssViewer Component housed an iframe tag which displays the live feed of the
+	Earth from the ISS via Ustream.
+	*/
 	
 	var IssViewer = function (_Component) {
 	    _inherits(IssViewer, _Component);
@@ -69193,6 +69226,12 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/*
+	The NavBar component displays different IconButtons which are linked to different
+	routes. When clicked on, the components associated with those routes are rendered to
+	the page.
+	*/
 	
 	var NavBar = function (_Component) {
 	    _inherits(NavBar, _Component);

@@ -8,6 +8,7 @@ export default function LocationReducer(state = initialState, action) {
         // Converts coordinates from Where The ISS AT API to DMS for Google Maps
         var longitude = magellan(action.longitude).longitude().toDMS();
         var latitude = magellan(action.latitude).latitude().toDMS();
+        // mapLng and mapLt variables are set to the values fetched from the API
         var mapLng = action.longitude;
         var mapLt = action.latitude;
         let Location = Object.assign({}, state, {
