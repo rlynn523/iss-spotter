@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/rlynn523/iss-spotter.svg?branch=mvp-staging)](https://travis-ci.org/rlynn523/iss-spotter)
 
 ##Link
-https://rlynn523.github.io/iss-spotter/build/#/?_k=50p1r6
+https://rlynn523.github.io/iss-spotter/#/?_k=tin69k
 
 ##Table of Contents
 <li><a href='#purpose'>Purpose</a></li>
